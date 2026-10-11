@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINDSET | Photography Studio Blantyre Malawi</title>
+    <meta name="description" content="We Don't Just Take Photos. We Capture Mindset. Premium photography studio in Blantyre, Malawi specializing in weddings, portraits, graduation, and commercial shoots.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#000000',
+                        offwhite: '#F5F5F0',
+                        gold: '#C5A880',
+                        goldDark: '#A3855E',
+                        darkGray: '#121212',
+                        cardGray: '#1A1A1A'
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+
+
+
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #F5F5F0;
+        }
+        #page-admin {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.9)),
+                url('MINDSETTTT/IMG_10.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #testimonials-section {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.88)),
+                url('MINDSETTTT/IMG_8.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #page-services {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.88)),
+                url('MINDSETTTT/IMG_16.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #page-contact {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.9)),
+                url('MINDSETTTT/IMG_15.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        #uploadPhotoForm #uploadFile {
+            display: block;
+            width: 100%;
+            min-height: 58px;
+            padding: 8px;
+            border: 1px dashed rgba(197, 168, 128, 0.65);
+            background: rgba(197, 168, 128, 0.06);
+            color: #F5F5F0;
+            cursor: pointer;
+        }
+        #uploadPhotoForm #uploadFile::file-selector-button {
+            margin-right: 14px;
+            padding: 10px 16px;
+            border: 0;
+            background: #C5A880;
+            color: #000000;
+            font: 700 12px 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #uploadPhotoForm #uploadFile:hover::file-selector-button {
+            background: #F5F5F0;
+        }
+        #uploadPhotoForm #uploadFile:focus-visible {
+            outline: 2px solid #C5A880;
+            outline-offset: 3px;
+        }
+        #uploadDestination,
+        #showOnHome {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 40px 12px 14px;
+            border: 1px solid rgba(197, 168, 128, 0.55);
+            border-radius: 0;
+            appearance: none;
+            background-color: #111111;
+            background-image:
+                linear-gradient(45deg, transparent 50%, #C5A880 50%),
+                linear-gradient(135deg, #C5A880 50%, transparent 50%);
+            background-position:
+                calc(100% - 17px) 50%,
+                calc(100% - 12px) 50%;
+            background-size: 5px 5px;
+            background-repeat: no-repeat;
+            color: #F5F5F0;
+            font: 500 14px 'Poppins', sans-serif;
+            cursor: pointer;
+        }
+        #uploadDestination option,
+        #showOnHome option {
+            background: #111111;
+            color: #F5F5F0;
+        }
+        #uploadDestination:focus-visible,
+        #showOnHome:focus-visible {
+            outline: 2px solid #C5A880;
+            outline-offset: 3px;
+            border-color: #C5A880;
+        }
+        #uploadPhotoForm .form-group > label {
+            display: block;
+            margin-bottom: 8px;
+            color: #C5A880;
+            font: 600 12px 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        #uploadCaption,
+        #uploadLocation {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid rgba(197, 168, 128, 0.55);
+            border-radius: 0;
+            background: #111111;
+            color: #F5F5F0;
+            font: 400 14px 'Poppins', sans-serif;
+        }
+        #uploadCaption::placeholder,
+        #uploadLocation::placeholder {
+            color: rgba(245, 245, 240, 0.5);
+        }
+        #uploadCaption:focus-visible,
+        #uploadLocation:focus-visible {
+            outline: 2px solid #C5A880;
+            outline-offset: 3px;
+            border-color: #C5A880;
+        }
+        #uploadPhotoForm > .submit-btn {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            margin-top: 8px;
+            padding: 14px 18px;
+            border: 1px solid #C5A880;
+            background: #C5A880;
+            color: #000000;
+            font: 700 12px 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        #uploadPhotoForm > .submit-btn:hover {
+            border-color: #F5F5F0;
+            background: #F5F5F0;
+        }
+        #uploadPhotoForm > .submit-btn:focus-visible {
+            outline: 2px solid #C5A880;
+            outline-offset: 3px;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 4px;
+        }
+    </style>
+
+
+
+
+
+</head>
+
+
+
+<body class="bg-black text-offwhite antialiased selection:bg-gold selection:text-black">
+
+    <!-- HEADER & NAVIGATION -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" onclick="switchPage('home')" class="flex items-center space-x-2 group">
+                <span class="text-2xl sm:text-3xl font-extrabold tracking-widest text-offwhite group-hover:text-gold transition-colors">
+                    MIND<span class="text-gold">SET🧠</span>
+                </span>
+            </a>
+
+
+
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <button onclick="switchPage('home')" class="nav-link text-sm font-medium uppercase tracking-wider text-gold transition-colors" data-page="home">Home</button>
+                <button onclick="switchPage('about')" class="nav-link text-sm font-medium uppercase tracking-wider text-offwhite hover:text-gold transition-colors" data-page="about">About</button>
+                <button onclick="switchPage('portfolio')" class="nav-link text-sm font-medium uppercase tracking-wider text-offwhite hover:text-gold transition-colors" data-page="portfolio">Portfolio</button>
+                <button onclick="switchPage('services')" class="nav-link text-sm font-medium uppercase tracking-wider text-offwhite hover:text-gold transition-colors" data-page="services">Services</button>
+                <button onclick="switchPage('contact')" class="nav-link text-sm font-medium uppercase tracking-wider text-offwhite hover:text-gold transition-colors" data-page="contact">Book Now</button>
+            </nav>
+
+            <!-- Call to Action / Phone / Admin trigger -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="tel:0983172650" class="flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-gold border border-gold/40 px-4 py-2 rounded-full hover:bg-gold hover:text-black transition-all">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>0983 172 650</span>
+                </a>
+            </div>
+
+
+
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-offwhite hover:text-gold text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+
+
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-gold/20 px-6 py-6 space-y-4">
+            <button onclick="switchPage('home'); toggleMobileMenu();" class="block w-full text-left text-lg font-medium text-gold py-2">Home</button>
+            <button onclick="switchPage('about'); toggleMobileMenu();" class="block w-full text-left text-lg font-medium text-offwhite py-2">About / The Mindset</button>
+            <button onclick="switchPage('portfolio'); toggleMobileMenu();" class="block w-full text-left text-lg font-medium text-offwhite py-2">Portfolio</button>
+            <button onclick="switchPage('services'); toggleMobileMenu();" class="block w-full text-left text-lg font-medium text-offwhite py-2">Services & Pricing</button>
+            <button onclick="switchPage('contact'); toggleMobileMenu();" class="block w-full text-left text-lg font-medium text-offwhite py-2">Book a Session</button>
+            <div class="pt-4 border-t border-gold/20 flex flex-col space-y-3">
+                <a href="tel:0983172650" class="flex items-center justify-center space-x-2 text-sm font-semibold uppercase tracking-wider text-gold border border-gold/40 py-3 rounded-xl">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Call 0983172650</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- FLOATING WHATSAPP & QUICK CALL BUTTONS -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
+        <!-- Call Us Button -->
+        <a href="tel:0983172650" class="w-12 h-12 bg-offwhite text-black rounded-full flex items-center justify-center shadow-2xl hover:bg-gold transition-all transform hover:scale-110" title="Call MINDSET Studio">
+            <i class="fa-solid fa-phone text-lg"></i>
+        </a>
+
+
+        <!-- WhatsApp Floating Button -->
+        <a id="floating-whatsapp" href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20shoot" target="_blank" rel="noopener noreferrer" class="w-14 h-14 bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-emerald-500 transition-all transform hover:scale-110 animate-bounce" title="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="pt-20">
+
+
+
+        <!-- ================= PAGE 1: HOME ================= -->
+        <div id="page-home" class="page-content">
+
+
+            <!-- Hero Slider Section -->
+            <section class="relative h-[85vh] w-full overflow-hidden bg-black">
+                <div id="hero-slider-container" class="absolute inset-0 w-full h-full">
+
+
+                    <!-- Slide 1 (Default) -->
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                        <img src="MINDSETTTT/IMG_1.jpg" alt="Hero 1" class="w-full h-full object-cover filter brightness-75" /> <!-- EDIT HERE: Replace with local image /images/hero1.jpg -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                        <div class="absolute bottom-16 left-6 right-6 md:left-16 max-w-4xl">
+                            <span class="text-gold uppercase tracking-widest text-xs sm:text-sm font-semibold mb-3 block">Blantyre, Malawi Photography Studio</span>
+                            <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold uppercase tracking-tight text-offwhite mb-4 leading-tight">
+                                We Don't Just Take Photos. <span class="text-gold">We Capture Mindset.</span>
+                            </h1>
+                            <p class="text-offwhite/80 text-sm sm:text-lg mb-6 max-w-xl">Elevating visual storytelling through artistic excellence, unmatched luxury, and genuine emotion.</p>
+                            <div class="flex flex-wrap gap-4">
+                                <button onclick="switchPage('contact')" class="bg-gold text-black font-semibold px-8 py-3.5 rounded-none uppercase tracking-wider hover:bg-offwhite transition-colors">Book Now</button>
+                                <button onclick="switchPage('portfolio')" class="border border-gold text-gold font-semibold px-8 py-3.5 rounded-none uppercase tracking-wider hover:bg-gold hover:text-black transition-colors">View Portfolio</button>
+                                <a href="https://duodrop.vercel.app" class="border border-gold text-gold font-semibold px-8 py-3.5 rounded-none uppercase tracking-wider hover:bg-gold hover:text-black transition-colors">DUODROP</a>
+                            </div>
+                            <div class="mt-4 text-xs text-gold/80 italic font-light caption-display">
+
+
+                                <!-- EDIT HERE: Dynamic Admin Caption -->
+                                "Elegance is refusal. Capturing raw ambition and timeless beauty in Blantyre."
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Work - 6 Best Photos -->
+            <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Curated Masterpieces</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-wide">Featured Work</h2>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Photo 1 -->
+                    <div class="group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" onclick="openLightbox('MINDSETTTT/IMG_10.jpg', 'Boss Mindset - Executive Portrait')">
+                        <img src="MINDSETTTT/IMG_10.jpg" alt="Boss Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /> <!-- EDIT HERE: Replace with local image /images/featured1.jpg -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Boss Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Executive Portraiture</h3>
+                        </div>
+                    </div>
+
+
+                    <!-- Photo 2 -->
+                    <div class="group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" onclick="openLightbox('MINDSETTTT/IMG_6.jpg', 'Love Mindset - Wedding Vows')">
+                        <img src="MINDSETTTT/IMG_6.jpg" alt="Love Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /> <!-- EDIT HERE: Replace with local image /images/featured2.jpg -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Love Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Timeless Romance</h3>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Photo 3 -->
+                    <div class="group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" onclick="openLightbox('MINDSETTTT/IMG_9.jpg', 'Graduation Mindset - Milestone Achieved')">
+                        <img src="MINDSETTTT/IMG_9.jpg" alt="Graduation Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /> <!-- EDIT HERE: Replace with local image /images/featured3.jpg -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Graduation Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Academic Triumph</h3>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Photo 4 -->
+                    <div class="group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" onclick="openLightbox('MINDSETTTT/IMG_27.jpg', 'Family Mindset - Generational Bonds')">
+                        <img src="MINDSETTTT/IMG_27.jpg" alt="Family Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /> <!-- EDIT HERE: Replace with local image /images/featured4.jpg -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Family Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Generational Warmth</h3>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Photo 5 -->
+                    <div class="group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" onclick="openLightbox('MINDSETTTT/IMG_29.jpg', 'Studio Portrait - High Contrast Elegance')">
+                        <img src="MINDSETTTT/IMG_29.jpg" alt="Studio Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /> <!-- EDIT HERE: Replace with local image /images/featured5.jpg -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Studio Portrait</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Cinematic Monotone</h3>
+                        </div>
+                 []
+                   </div>
+
+                    <!-- Photo 6 -->
+                    <div class="group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" onclick="openLightbox('MINDSETTTT/IMG_19.jpg', 'Corporate Mindset - Modern Vision')">
+                        <img src="MINDSETTTT/IMG_19.jpg" alt="Corporate Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" /> <!-- EDIT HERE: Replace with local image /images/featured6.jpg -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Corporate Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Visionary Leadership</h3>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Preview Section -->
+            <section class="py-20 bg-cardGray/50 border-y border-gold/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Our Specialized Domains</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-wide">Explore Categories</h2>
+                        <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Love Mindset -->
+                        <div onclick="switchPage('portfolio')" class="group relative h-96 overflow-hidden cursor-pointer shadow-xl rounded-none">
+                            <img src="MINDSETTTT/IMG_6.jpg" alt="Love Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-90" /> <!-- EDIT HERE: Replace with local image /images/cat_love.jpg -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-center">
+                                <h3 class="text-2xl font-bold uppercase tracking-wider text-offwhite mb-2 group-hover:text-gold transition-colors">LOVE MINDSET</h3>
+                                <span class="text-xs uppercase tracking-widest text-gold font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Explore Weddings & Romance</span>
+                            </div>
+                        </div>
+
+
+                        <!-- Graduation Mindset -->
+                        <div onclick="switchPage('portfolio')" class="group relative h-96 overflow-hidden cursor-pointer shadow-xl rounded-none">
+                            <img src="MINDSETTTT/IMG_9.jpg" alt="Graduation Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-90" /> <!-- EDIT HERE: Replace with local image /images/cat_grad.jpg -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-center">
+                                <h3 class="text-2xl font-bold uppercase tracking-wider text-offwhite mb-2 group-hover:text-gold transition-colors">GRADUATION MINDSET</h3>
+                                <span class="text-xs uppercase tracking-widest text-gold font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Explore Academic Milestone</span>
+                            </div>
+                        </div>
+
+
+                        <!-- Boss Mindset -->
+                        <div onclick="switchPage('portfolio')" class="group relative h-96 overflow-hidden cursor-pointer shadow-xl rounded-none">
+                            <img src="MINDSETTTT/IMG_10.jpg" alt="Boss Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-90" /> <!-- EDIT HERE: Replace with local image /images/cat_boss.jpg -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-center">
+                                <h3 class="text-2xl font-bold uppercase tracking-wider text-offwhite mb-2 group-hover:text-gold transition-colors">BOSS MINDSET</h3>
+                                <span class="text-xs uppercase tracking-widest text-gold font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Explore Executive & Corporate</span>
+                            </div>
+                        </div>
+
+
+                        <!-- Family Mindset -->
+                        <div onclick="switchPage('portfolio')" class="group relative h-96 overflow-hidden cursor-pointer shadow-xl rounded-none">
+                            <img src="MINDSETTTT/IMG_27.jpg" alt="Family Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-90" /> <!-- EDIT HERE: Replace with local image /images/cat_family.jpg -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 text-center">
+                                <h3 class="text-2xl font-bold uppercase tracking-wider text-offwhite mb-2 group-hover:text-gold transition-colors">FAMILY MINDSET</h3>
+                                <span class="text-xs uppercase tracking-widest text-gold font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Explore Family Portraits</span>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials-section" class="py-24 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Client Experiences</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-wide">Words From Our Clients</h2>
+                        <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                    </div>
+
+                    <div id="testimonials-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instagram Feed Preview @mind_set_ting -->
+            <section class="py-16 bg-cardGray/30 border-t border-gold/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Connect On Instagram</span>
+                    <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="text-2xl sm:text-3xl font-extrabold hover:text-gold transition-colors inline-flex items-center space-x-3">
+                        <i class="fa-brands fa-instagram text-gold"></i>
+                        <span>@mind_set_ting</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-2 px-2">
+                    <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="relative group aspect-square overflow-hidden block">
+                        <img src="MINDSETTTT/IMG_11.jpg" alt="Instagram Post" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-gold"><i class="fa-brands fa-instagram text-2xl"></i></div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="relative group aspect-square overflow-hidden block">
+                        <img src="MINDSETTTT/IMG_12.jpg" alt="Instagram Post" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-gold"><i class="fa-brands fa-instagram text-2xl"></i></div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="relative group aspect-square overflow-hidden block">
+                        <img src="MINDSETTTT/IMG_13.jpg" alt="Instagram Post" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-gold"><i class="fa-brands fa-instagram text-2xl"></i></div>
+                    </a>
+
+                    <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="relative group aspect-square overflow-hidden block">
+                        <img src="MINDSETTTT/IMG_14.jpg" alt="Instagram Post" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-gold"><i class="fa-brands fa-instagram text-2xl"></i></div>
+                    </a>
+
+                    <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="relative group aspect-square overflow-hidden block">
+                        <img src="MINDSETTTT/IMG_15.jpg" alt="Instagram Post" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-gold"><i class="fa-brands fa-instagram text-2xl"></i></div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="relative group aspect-square overflow-hidden block">
+                        <img src="MINDSETTTT/IMG_16.jpg" alt="Instagram Post" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-gold"><i class="fa-brands fa-instagram text-2xl"></i></div>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 2: ABOUT / THE MINDSET ================= -->
+        <div id="page-about" class="page-content hidden">
+
+
+            <!-- Brand Story & Philosophy -->
+            <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Our Genesis & Belief</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold uppercase tracking-wide">The Mindset Philosophy</h2>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                </div>
+
+                <div class="space-y-8 text-offwhite/90 text-base sm:text-lg leading-relaxed font-light">
+                    <p>
+                        <strong class="text-gold font-semibold font-montserrat">MINDSET</strong> was born out of a singular, uncompromising conviction: photography is not merely about pressing a shutter button. It is about capturing the inner drive, the ambition, the elegance, and the soul of every individual who steps before our lens.
+                    </p>
+                    <p>
+                        Headquartered in the vibrant heart of Blantyre, Malawi, our studio merges high-fashion editorial aesthetics with deeply authentic storytelling. We believe that your mindset—your confidence, your vision, and your personal triumph—deserves to be immortalized with uncompromising quality and luxury.
+                    </p>
+                    <div class="border-l-2 border-gold pl-6 py-4 my-8 bg-cardGray/40 italic text-gold font-montserrat">
+                        "We Don't Just Take Photos. We Capture Mindset."
+                    </div>
+                    <p>
+                        Whether capturing the sacred vows of a wedding, celebrating academic excellence at graduation, or anchoring executive corporate visions, our team approaches every session with artistic mastery, precision lighting, and an eye for timeless sophistication.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Owners Section with requested template -->
+            <section class="py-24 bg-cardGray/30 border-t border-gold/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">The Visionaries</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-wide">Meet The Owners</h2>
+                        <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                    </div>
+
+                    <div id="owners-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+
+
+                        <!-- START OWNER TEMPLATE - DUPLICATE TO ADD MORE OWNERS -->
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="PHOTOS/IMG_1.jpg" alt="GWABALALA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> <!-- EDIT HERE: Replace with your local photo /images/owner1.jpg -->
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Kadosh</h3> <!-- EDIT HERE: Change name -->
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">CEO,V/Pgrapher</p> <!-- EDIT HERE: Change role -->
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Passionate about editorial lighting and capturing the unyielding ambition of Blantyre's trailblazers.</p> <!-- EDIT HERE: Change bio -->
+                        </div>
+                        <!-- END OWNER TEMPLATE -->
+
+                        <!-- Owner 2 -->
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="ABOUT/Praise.jpg" alt="Owner Name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> <!-- EDIT HERE: Replace with your local photo /images/owner2.jpg -->
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Praise</h3> <!-- EDIT HERE: Change name -->
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Photographer</p> <!-- EDIT HERE: Change role -->
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Dedicated to curating luxury visual experiences that reflect modern Malawian elegance and timeless grace.</p> <!-- EDIT HERE: Change bio -->
+                        </div>
+
+                        <!-- Owner 3 -->
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="PHOTOS/IMG_3.jpg" alt="Owner Name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> <!-- EDIT HERE: Replace with your local photo /images/owner3.jpg -->
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Francis</h3> <!-- EDIT HERE: Change name -->
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">director, designer and partner</p> <!-- EDIT HERE: Change role -->
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Specializing in high-end post-production and ensuring every single frame meets international luxury standards.</p> <!-- EDIT HERE: Change bio -->
+                        </div>
+
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="PHOTOS/IMG_4.jpg" alt="Studio team portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Tupe(Gwababa)</h3>
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Manager</p>
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Brings an attentive eye to portrait sessions and helps each shoot feel relaxed and personal.</p>
+                        </div>
+
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="PHOTOS/IMG_5.jpg" alt="Studio team member in a suit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">George</h3>
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Assist Manager</p>
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Helps clients feel at ease and confident throughout every studio session.</p>
+                        </div>
+
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="PHOTOS/IMG_6.jpg" alt="Portrait session outdoors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Vintage</h3>
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Financial Director</p>
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Shapes natural light into polished, expressive portraits with a refined finish.</p>
+                        </div>
+
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="PHOTOS/IMG_7.jpg" alt="Studio team portrait outdoors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Lobrino</h3>
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Assist Director</p>
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Keeps portrait sessions organized, welcoming, and running smoothly.</p>
+                        </div>
+
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="ABOUT/Mega.jpg" alt="Studio team member outdoors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Mega</h3>
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Journalist</p>
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Supports creative direction with thoughtful composition and a collaborative approach.</p>
+                        </div>
+
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="ABOUT/Confort.jpg" alt="Studio team member in an outdoor portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Confort</h3>
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Technical Director</p>
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Helps prepare each shoot and keeps the production moving smoothly.</p>
+                        </div>
+
+                        <div class="owner-card bg-black border border-gold/20 overflow-hidden shadow-xl text-center pb-8 group">
+                            <div class="aspect-[4/5] overflow-hidden mb-4">
+                                <img src="MINDSETTTT/IMG_13.jpg" alt="Studio team member in an outdoor portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                            <h3 class="text-xl font-bold uppercase tracking-wider text-offwhite mb-1">Prince</h3>
+                            <p class="text-gold text-xs uppercase tracking-widest font-semibold mb-4">Assist Technical Director</p>
+                            <p class="description px-6 text-offwhite/70 text-sm font-light">Helps prepare each shoot and keeps the production moving smoothly.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 3: PORTFOLIO ================= -->
+        <div id="page-portfolio" class="page-content hidden">
+            <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Visual Archive</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold uppercase tracking-wide">The Portfolio</h2>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button onclick="filterPortfolio('all', this)" class="portfolio-filter-btn active-filter px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-gold text-black transition-all">All Work</button>
+                    <button onclick="filterPortfolio('love', this)" class="portfolio-filter-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20">Love Mindset</button>
+                    <button onclick="filterPortfolio('graduation', this)" class="portfolio-filter-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20">Graduation Mindset</button>
+                    <button onclick="filterPortfolio('boss', this)" class="portfolio-filter-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20">Boss Mindset</button>
+                    <button onclick="filterPortfolio('family', this)" class="portfolio-filter-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20">Family Mindset</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div id="portfolio-grid" class="portfolio-grid-layout">
+                    <!-- Item 1 -->
+                    <div class="portfolio-item group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" data-category="love" onclick="openLightbox('MINDSETTTT/IMG_6.jpg', 'Love Mindset Wedding - Blantyre')">
+                        <img src="MINDSETTTT/IMG_6.jpg" alt="Love Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Love Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Wedding Vows & Celebration</h3>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="portfolio-item group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" data-category="graduation" onclick="openLightbox('MINDSETTTT/IMG_9.jpg', 'Graduation Mindset - UNIMA / Polytechnic')">
+                        <img src="MINDSETTTT/IMG_9.jpg" alt="Graduation Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Graduation Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Academic Milestone Celebration</h3>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="portfolio-item group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" data-category="boss" onclick="openLightbox('MINDSETTTT/IMG_10.jpg', 'Boss Mindset - Executive Suite Blantyre')">
+                        <img src="MINDSETTTT/IMG_10.jpg" alt="Boss Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Boss Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Executive Portraiture</h3>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="portfolio-item group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" data-category="family" onclick="openLightbox('MINDSETTTT/IMG_27.jpg', 'Family Mindset - Generations in Blantyre')">
+                        <img src="MINDSETTTT/IMG_27.jpg" alt="Family Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Family Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Generational Warmth</h3>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="portfolio-item group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" data-category="love" onclick="openLightbox('MINDSETTTT/IMG_6.jpg', 'Love Mindset - Traditional Engagement (Chinkhoswe)')">
+                        <img src="MINDSETTTT/IMG_6.jpg" alt="Love Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Love Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Traditional Engagement</h3>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="portfolio-item group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" data-category="boss" onclick="openLightbox('MINDSETTTT/IMG_10.jpg', 'Boss Mindset - Corporate Leadership')">
+                        <img src="MINDSETTTT/IMG_10.jpg" alt="Boss Mindset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-gold text-xs uppercase tracking-wider font-semibold">Boss Mindset</span>
+                            <h3 class="text-xl font-bold text-offwhite mt-1">Corporate Visionary</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 4: SERVICES & PRICING ================= -->
+        <div id="page-services" class="page-content hidden">
+            <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Investment & Packages</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold uppercase tracking-wide">Services & Pricing</h2>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                    <p class="text-offwhite/70 text-sm mt-4 max-w-xl mx-auto">All prices quoted in Malawi Kwacha (MK). Click 'Book on WhatsApp' to secure your date instantly with our Blantyre studio team.</p>
+                </div>
+
+                <div id="pricing-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Individual Session</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Studio Portrait</h3>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="0">MK25k – MK40k</div>
+                            <p class="text-offwhite/80 text-sm mb-6">Professional lighting, 3 edited high-resolution digital portraits, 1 outfit change, and private online gallery.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20Studio%20Portrait%20shoot" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Milestone Celebration</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Graduation / Birthday</h3>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="1">MK35k – MK60k</div>
+                            <p class="text-offwhite/80 text-sm mb-6">On-location or studio coverage, 8 professionally edited portraits, custom styling guidance, and fast turnaround.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20Graduation%20or%20Birthday%20shoot" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Couples & Engagement</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Love Mindset</h3>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="2">MK50k – MK120k</div>
+                            <p class="text-offwhite/80 text-sm mb-6">Romantic couple's shoot, scenic Blantyre locations, 15 high-end retouched digital photos, and cinematic highlight reel.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20Love%20Mindset%20shoot" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Wedding Package</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Wedding Silver</h3>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="3">MK250k</div>
+                            <p class="text-offwhite/80 text-sm mb-6">Up to 6 hours coverage, ceremony and reception, 2 professional photographers, flash drive with 100+ edited images.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20Wedding%20Silver%20package" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Wedding Package</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Wedding Gold</h3>
+                            <div class="text-3xl font-extrabold text-gold mb-6">MK450k</div>
+                            <p class="text-offwhite/80 text-sm mb-6">Full day coverage, pre-wedding shoot included, 3 pro photographers, drone aerial coverage, luxury photobook album.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20Wedding%20Gold%20package" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Wedding Package</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Wedding Platinum</h3>
+                            <div class="text-3xl font-extrabold text-gold mb-6">MK700k+</div>
+                            <p class="text-offwhite/80 text-sm mb-6">Ultimate luxury coverage across multiple days, full cinematic video production, drone, multiple custom albums, VIP priority editing.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20Wedding%20Platinum%20package" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Service 7 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Business & Brand</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Corporate Mindset</h3>
+                            <div class="text-3xl font-extrabold text-gold mb-6">MK80k – MK150k</div>
+                            <p class="text-offwhite/80 text-sm mb-6>Team portraits, executive headshots, workplace environment coverage, commercial branding rights for business use.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20Corporate%20Mindset%20shoot" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Service 8 -->
+                    <div class="bg-cardGray border border-gold/20 p-8 flex flex-col justify-between shadow-xl relative hover:border-gold transition-all">
+                        <div>
+                            <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Family & Legacy</span>
+                            <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Family Mindset</h3>
+                            <div class="text-3xl font-extrabold text-gold mb-6">MK40k – MK55k</div>
+                            <p class="text-offwhite/80 text-sm mb-6">Multi-generational family portrait session in studio or outdoor Blantyre location, 10 fully edited high-res digital images.</p>
+                        </div>
+                        <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20Family%20Mindset%20shoot" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>Book on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 5: BOOK A SESSION / CONTACT ================= -->
+        <div id="page-contact" class="page-content hidden">
+            <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-2">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold uppercase tracking-wide">Book A Session / Contact</h2>
+                    <div class="w-16 h-1 bg-gold mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Booking Form -->
+                    <div class="bg-cardGray border border-gold/20 p-8 sm:p-10 shadow-2xl">
+                        <h3 class="text-2xl font-bold uppercase tracking-wide mb-6 text-offwhite">Secure Your Date</h3>
+                        <form id="booking-form" onsubmit="handleBookingSubmission(event)" class="space-y-6">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Full Name</label>
+                                <input type="text" id="book-name" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold rounded-none" placeholder="e.g. Richard Cameron" />
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Phone / WhatsApp</label>
+                                    <input type="tel" id="book-phone" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold rounded-none" placeholder="e.g. +265 888..." />
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Shoot Type</label>
+                                    <select id="book-type" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold rounded-none">
+                                        <option value="Studio Portrait">Studio Portrait (MK25k-40k)</option>
+                                        <option value="Graduation / Birthday">Graduation / Birthday (MK35k-60k)</option>
+                                        <option value="Love Mindset">Love Mindset (MK50k-120k)</option>
+                                        <option value="Wedding Silver">Wedding Silver (MK250k)</option>
+                                        <option value="Wedding Gold">Wedding Gold (MK450k)</option>
+                                        <option value="Wedding Platinum">Wedding Platinum (MK700k+)</option>
+                                        <option value="Corporate Mindset">Corporate Mindset (MK80k-150k)</option>
+                                        <option value="Family Mindset">Family Mindset (MK40k-55k)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Preferred Date</label>
+                                <input type="date" id="book-date" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold rounded-none" />
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Message / Special Requests</label>
+                                <textarea id="book-message" rows="4" class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold rounded-none" placeholder="Tell us about your vision..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gold text-black font-bold uppercase tracking-widest py-4 hover:bg-offwhite transition-colors">
+                                Submit Booking Request
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Cards & Map Location -->
+                    <div class="space-y-8">
+                        <div class="bg-cardGray border border-gold/20 p-8 shadow-2xl space-y-6">
+                            <h3 class="text-2xl font-bold uppercase tracking-wide text-offwhite">Studio Headquarters</h3>
+                            <div class="space-y-4 text-sm text-offwhite/80">
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-location-dot text-gold text-lg mt-1"></i>
+                                    <div>
+                                        <strong class="block text-offwhite uppercase font-montserrat">Location</strong>
+                                        <span>Blantyre CBD, Malawi</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-phone text-gold text-lg mt-1"></i>
+                                    <div>
+                                        <strong class="block text-offwhite uppercase font-montserrat">Phone / WhatsApp</strong>
+                                        <a href="tel:0983172650" class="text-gold hover:underline">0983172650</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-envelope text-gold text-lg mt-1"></i>
+                                    <div>
+                                        <strong class="block text-offwhite uppercase font-montserrat">Email</strong>
+                                        <a href="mailto:mindsetthing4@gmail.com" class="text-gold hover:underline">mindsetthing4@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <i class="fa-solid fa-globe text-gold text-lg mt-1"></i>
+                                    <div>
+                                        <strong class="block text-offwhite uppercase font-montserrat">Social Media</strong>
+                                        <div class="flex space-x-4 mt-2">
+                                            <a href="https://www.facebook.com/profile.php?id=61590127506605" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-offwhite"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                                            <a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-offwhite"><i class="fa-brands fa-instagram text-xl"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map Embed / Card -->
+                        <div class="bg-cardGray border border-gold/20 overflow-hidden shadow-2xl h-64 relative">
+                            <iframe title="Blantyre Map" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=Blantyre,%20Malawi&t=&z=13&ie=UTF8&iwloc=&output=embed" style="filter: grayscale(1) contrast(1.2) invert(0.9);"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= HIDDEN ADMIN DASHBOARD ================= -->
+        <div id="page-admin" class="page-content hidden">
+            <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="flex justify-between items-center mb-12 border-b border-gold/20 pb-6">
+                    <div>
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold block mb-1">Restricted Access</span>
+                        <h2 class="text-3xl font-extrabold uppercase tracking-wide">Admin Dashboard</h2>
+                    </div>
+                    <button id="admin-logout-btn" onclick="adminLogout()" class="hidden bg-red-600/20 text-red-400 border border-red-500/40 px-4 py-2 text-xs uppercase font-semibold hover:bg-red-600 hover:text-white transition-all">Logout</button>
+                </div>
+
+                <!-- Admin Login Section -->
+                <div id="admin-login-box" class="max-w-md mx-auto bg-cardGray border border-gold/20 p-8 shadow-2xl">
+                    <h3 class="text-xl font-bold uppercase tracking-wider mb-6 text-center text-gold">Admin Authentication</h3>
+                    <form onsubmit="handleAdminLogin(event)" class="space-y-6" autocomplete="off">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Admin Email</label>
+                            <input type="password" id="admin-email" name="admin-login-identifier" inputmode="email" autocomplete="new-password" autocapitalize="none" spellcheck="false" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold rounded-none" placeholder="Admin email" />
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Password</label>
+                            <input type="password" id="admin-password" name="admin-login-password" autocomplete="new-password" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold rounded-none" placeholder="Password" />
+                        </div>
+                        <button type="submit" class="w-full bg-gold text-black font-bold uppercase tracking-widest py-3.5 hover:bg-offwhite transition-colors">
+                            Access Dashboard
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Admin Main Control Panel (Hidden until login) -->
+                <div id="admin-dashboard-panel" class="hidden space-y-12">
+                    <!-- Tab Switcher inside Admin -->
+                    <div class="flex flex-wrap gap-4 border-b border-gold/20 pb-4">
+                        <button onclick="switchAdminTab('photos')" class="admin-tab-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-gold text-black transition-all" data-tab="photos">Photo Uploader</button>
+                        <button onclick="switchAdminTab('owners')" class="admin-tab-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20" data-tab="owners">Manage Owners</button>
+                        <button onclick="switchAdminTab('bookings')" class="admin-tab-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20" data-tab="bookings">View Bookings</button>
+                        <button onclick="switchAdminTab('services')" class="admin-tab-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20" data-tab="services">Edit Services</button>
+                        <button onclick="switchAdminTab('testimonials')" class="admin-tab-btn px-6 py-2.5 text-xs font-semibold uppercase tracking-wider bg-cardGray text-offwhite hover:bg-gold hover:text-black transition-all border border-gold/20" data-tab="testimonials">Manage Testimonials</button>
+                    </div>
+
+                    <!-- Tab 1: Upload Photos -->
+                     <!-- Inside <div id="uploadTab" class="tab-pane active"> -->
+<form id="uploadPhotoForm">
+    <div class="form-group">
+        <label>Select Image File from Device</label>
+        <input type="file" id="uploadFile" accept="image/*" required>
+    </div>
+    
+    <!-- ADD THIS PREVIEW CONTAINER -->
+    <div class="form-group" id="imagePreviewContainer" style="display:none; margin-bottom: 15px;">
+        <label>Preview:</label>
+        <img id="imagePreview" src="" alt="Preview" style="max-width: 200px; max-height: 200px; border: 1px solid var(--gold); display: block;" />
+    </div>
+
+    <div class="form-group">
+        <label>Destination</label>
+        <select id="uploadDestination">
+            <option value="Home Tab">Home Tab (Hero Slider)</option>
+            <option value="love">Portfolio - Love Mindset</option>
+            <option value="graduation">Portfolio - Graduation Mindset</option>
+            <option value="boss">Portfolio - Boss Mindset</option>
+            <option value="family">Portfolio - Family Mindset</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Caption</label>
+        <input type="text" id="uploadCaption" placeholder="Enter image caption...">
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input type="text" id="uploadLocation" placeholder="Blantyre, Malawi">
+    </div>
+    <div class="form-group">
+        <label>Show on Home Hero?</label>
+        <select id="showOnHome">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+    <button type="submit" class="submit-btn">Publish Photo</button>
+</form>
+
+
+
+                    <div id="admin-tab-photos" class="admin-section space-y-8">
+                    </div>
+
+                    <!-- Tab 2: Manage Owners -->
+                    <div id="admin-tab-owners" class="admin-section hidden space-y-8">
+                        <div class="bg-cardGray border border-gold/20 p-8 shadow-xl">
+                            <h3 class="text-xl font-bold uppercase tracking-wider mb-6 text-gold">Manage Studio Owners & Team</h3>
+                            <p class="text-offwhite/70 text-sm mb-6">Click "Edit Card" to modify owner details, bio, and upload new photos in real-time.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="admin-owners-cards">
+                                <!-- Owner cards will be dynamically populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: View Bookings -->
+                    <div id="admin-tab-bookings" class="admin-section hidden space-y-8">
+                        <div class="bg-cardGray border border-gold/20 p-8 shadow-xl">
+                            <h3 class="text-xl font-bold uppercase tracking-wider mb-6 text-gold">Client Booking Requests</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-black text-gold uppercase text-xs tracking-wider border-b border-gold/20">
+                                        <tr>
+                                            <th class="p-4">Name</th>
+                                            <th class="p-4">Phone / WhatsApp</th>
+                                            <th class="p-4">Shoot Type</th>
+                                            <th class="p-4">Date</th>
+                                            <th class="p-4">Message</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-bookings-table-body" class="divide-y divide-gold/10">
+                                        <!-- Dynamically populated bookings -->
+                                        <tr>
+                                            <td colspan="5" class="p-6 text-center text-offwhite/50">No booking requests submitted yet. (Submissions appear here instantly)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: Edit Services -->
+                    <div id="admin-tab-services" class="admin-section hidden space-y-8">
+                        <div class="bg-cardGray border border-gold/20 p-8 shadow-xl">
+                            <h3 class="text-xl font-bold uppercase tracking-wider mb-6 text-gold">Edit Pricing & Services (Malawi Kwacha)</h3>
+                            <p class="text-offwhite/70 text-sm mb-6">Update service pricing displayed across the website instantly.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Studio Portrait Pricing</label>
+                                    <input type="text" value="MK25k – MK40k" data-service-price-input="0" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Graduation / Birthday Pricing</label>
+                                    <input type="text" value="MK35k – MK60k" data-service-price-input="1" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Love Mindset Pricing</label>
+                                    <input type="text" value="MK50k – MK120k" data-service-price-input="2" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Wedding Silver Pricing</label>
+                                    <input type="text" value="MK250k" data-service-price-input="3" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                            </div>
+
+                            <button onclick="saveServicePricing()" class="mt-6 bg-gold text-black font-bold uppercase tracking-widest px-8 py-3 text-xs hover:bg-offwhite transition-colors">
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5: Manage Testimonials -->
+                    <div id="admin-tab-testimonials" class="admin-section hidden space-y-8">
+                        <div class="bg-cardGray border border-gold/20 p-8 shadow-xl">
+                            <h3 class="text-xl font-bold uppercase tracking-wider mb-2 text-gold">Manage Client Testimonials</h3>
+                            <p class="text-offwhite/70 text-sm mb-6">Edit the client quotes and details shown on the Home page. Changes are saved in this browser.</p>
+                            <div id="admin-testimonials-list" class="space-y-6"></div>
+
+                            <form onsubmit="addTestimonial(event)" class="mt-10 border-t border-gold/20 pt-8 space-y-4">
+                                <h4 class="text-sm font-bold uppercase tracking-wider text-gold">Add a Client Testimonial</h4>
+                                <input id="new-testimonial-name" type="text" required maxlength="100" placeholder="Client name" class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite text-sm" />
+                                <input id="new-testimonial-detail" type="text" required maxlength="100" placeholder="Client / session details" class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite text-sm" />
+                                <textarea id="new-testimonial-quote" required maxlength="1000" rows="4" placeholder="Client testimonial" class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite text-sm"></textarea>
+                                <button type="submit" class="bg-gold text-black font-bold uppercase tracking-widest px-8 py-3 text-xs hover:bg-offwhite transition-colors">Add Testimonial</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-cardGray border-t border-gold/20 text-offwhite py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
+                <span class="text-2xl font-extrabold tracking-widest text-offwhite block mb-4">
+                    MIND<span class="text-gold">SET</span>
+                </span>
+                <p class="text-offwhite/70 text-sm mb-4">We Don't Just Take Photos. We Capture Mindset.</p>
+                <p class="text-xs text-gold font-semibold">Blantyre, Malawi</p>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-wider text-gold mb-4 text-sm">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="switchPage('home')" class="hover:text-gold transition-colors">Home</button></li>
+                    <li><button onclick="switchPage('about')" class="hover:text-gold transition-colors">About / The Mindset</button></li>
+                    <li><button onclick="switchPage('portfolio')" class="hover:text-gold transition-colors">Portfolio</button></li>
+                    <li><button onclick="switchPage('services')" class="hover:text-gold transition-colors">Services & Pricing</button></li>
+                    <li><button onclick="switchPage('contact')" class="hover:text-gold transition-colors">Book a Session</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-wider text-gold mb-4 text-sm">Connect With Us</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="https://www.facebook.com/profile.php?id=61590127506605" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors flex items-center space-x-2"><i class="fa-brands fa-facebook-f text-gold"></i><span>Facebook</span></a></li>
+                    <li><a href="https://www.instagram.com/mind_set_ting" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors flex items-center space-x-2"><i class="fa-brands fa-instagram text-gold"></i><span>@mind_set_ting</span></a></li>
+                    <li><a href="mailto:mindsetthing4@gmail.com" class="hover:text-gold transition-colors flex items-center space-x-2"><i class="fa-solid fa-envelope text-gold"></i><span>mindsetthing4@gmail.com</span></a></li>
+                    <li><a href="tel:0983172650" class="hover:text-gold transition-colors flex items-center space-x-2"><i class="fa-solid fa-phone text-gold"></i><span>0983 172 650</span></a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold uppercase tracking-wider text-gold mb-4 text-sm">MIND SET THING</h4>
+                <p class="text-xs text-offwhite/60 mb-4">Studio administrators.</p>
+                <button onclick="switchPage('admin')" class="border border-gold/40 text-gold text-xs uppercase tracking-widest px-4 py-2 hover:bg-gold hover:text-black transition-all">
+                    MINDSET
+                </button>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gold/10 text-center text-xs text-offwhite/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 MINDSET Photography Studio. All Rights Reserved. Blantyre, Malawi.</p>
+            <a href="https://wa.me/265888240630" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline flex items-center space-x-1">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Developed by Codecraft Systems | +265 888 240 630</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-offwhite hover:text-gold text-3xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full text-center">
+            <img id="lightbox-img" src="" alt="Lightbox Zoom" class="max-h-[75vh] mx-auto object-contain border border-gold/30 shadow-2xl mb-4" />
+            <p id="lightbox-caption" class="text-gold text-lg uppercase tracking-wider font-montserrat font-semibold"></p>
+        </div>
+    </div>
+
+    <!-- CUSTOM NOTIFICATION MODAL (Replaces alert/confirm) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-cardGray border border-gold p-8 max-w-md w-full text-center shadow-2xl">
+            <h3 id="modal-title" class="text-xl font-bold uppercase tracking-wider text-gold mb-4">Notice</h3>
+            <p id="modal-message" class="text-offwhite/90 text-sm mb-6 leading-relaxed"></p>
+            <button onclick="closeCustomModal()" class="bg-gold text-black font-bold uppercase tracking-widest px-8 py-3 text-xs hover:bg-offwhite transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- OWNER EDIT MODAL -->
+    <div id="owner-edit-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-cardGray border border-gold p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold uppercase tracking-wider text-gold">Edit Owner</h3>
+                <button onclick="closeOwnerEditModal()" class="text-offwhite hover:text-gold text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <form id="owner-edit-form" class="space-y-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Owner Name</label>
+                    <input type="text" id="owner-name-input" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold" />
+                </div>
+                
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Role / Title</label>
+                    <input type="text" id="owner-role-input" required class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold" />
+                </div>
+                
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Bio / Description</label>
+                    <textarea id="owner-bio-input" rows="4" class="w-full bg-black border border-gold/30 px-4 py-3 text-offwhite focus:outline-none focus:border-gold" placeholder="Enter owner bio..."></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-2">Upload Photo</label>
+                    <div class="border border-dashed border-gold/40 p-6 text-center cursor-pointer hover:border-gold transition-colors" onclick="document.getElementById('owner-photo-input').click()">
+                        <i class="fa-solid fa-cloud-arrow-up text-gold text-2xl mb-2"></i>
+                        <p class="text-offwhite/70 text-sm">Click to upload or drag and drop</p>
+                        <p class="text-offwhite/50 text-xs mt-1">PNG, JPG or GIF (Max 5MB)</p>
+                    </div>
+                    <input type="file" id="owner-photo-input" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)" />
+                    <div id="photo-preview-container" class="mt-4 hidden">
+                        <img id="owner-photo-preview" src="" alt="Preview" class="max-h-48 mx-auto border border-gold/30" />
+                        <button type="button" onclick="clearPhotoPreview()" class="mt-2 text-xs text-red-400 underline">Clear Photo</button>
+                    </div>
+                </div>
+                
+                <div class="flex gap-4 justify-end pt-4">
+                    <button type="button" onclick="closeOwnerEditModal()" class="bg-cardGray border border-gold/40 text-offwhite px-6 py-3 text-xs uppercase font-semibold hover:bg-gold/10 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-gold text-black px-8 py-3 text-xs uppercase font-semibold hover:bg-offwhite transition-colors">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script src="script.js"></script>
+</body>
+</html>
