@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="vendor/fontawesome/fontawesome.css">
     <link rel="stylesheet" href="styles.css">
 
     <style>
@@ -198,6 +198,8 @@
             outline: 2px solid #C5A880;
             outline-offset: 3px;
         }
+        /* Fallback so admin panels stay hidden even if the Tailwind CDN is slow or blocked */
+        .hidden { display: none; }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -396,8 +398,7 @@
                             <span class="text-gold text-xs uppercase tracking-wider font-semibold">Studio Portrait</span>
                             <h3 class="text-xl font-bold text-offwhite mt-1">Cinematic Monotone</h3>
                         </div>
-                 []
-                   </div>
+                    </div>
 
                     <!-- Photo 6 -->
                     <div class="group relative overflow-hidden bg-cardGray aspect-[4/5] cursor-pointer shadow-lg" onclick="openLightbox('MINDSETTTT/IMG_19.jpg', 'Corporate Mindset - Modern Vision')">
@@ -811,7 +812,7 @@
                         <div>
                             <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Wedding Package</span>
                             <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Wedding Gold</h3>
-                            <div class="text-3xl font-extrabold text-gold mb-6">MK450k</div>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="4">MK450k</div>
                             <p class="text-offwhite/80 text-sm mb-6">Full day coverage, pre-wedding shoot included, 3 pro photographers, drone aerial coverage, luxury photobook album.</p>
                         </div>
                         <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20Wedding%20Gold%20package" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
@@ -825,7 +826,7 @@
                         <div>
                             <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Wedding Package</span>
                             <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Wedding Platinum</h3>
-                            <div class="text-3xl font-extrabold text-gold mb-6">MK700k+</div>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="5">MK700k+</div>
                             <p class="text-offwhite/80 text-sm mb-6">Ultimate luxury coverage across multiple days, full cinematic video production, drone, multiple custom albums, VIP priority editing.</p>
                         </div>
                         <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20Wedding%20Platinum%20package" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
@@ -839,7 +840,7 @@
                         <div>
                             <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Business & Brand</span>
                             <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Corporate Mindset</h3>
-                            <div class="text-3xl font-extrabold text-gold mb-6">MK80k – MK150k</div>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="6">MK80k – MK150k</div>
                             <p class="text-offwhite/80 text-sm mb-6>Team portraits, executive headshots, workplace environment coverage, commercial branding rights for business use.</p>
                         </div>
                         <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20Corporate%20Mindset%20shoot" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
@@ -853,7 +854,7 @@
                         <div>
                             <span class="text-gold text-xs uppercase tracking-widest font-semibold block mb-2">Family & Legacy</span>
                             <h3 class="text-2xl font-bold uppercase tracking-wide mb-4">Family Mindset</h3>
-                            <div class="text-3xl font-extrabold text-gold mb-6">MK40k – MK55k</div>
+                            <div class="service-price text-3xl font-extrabold text-gold mb-6" data-service-price-display="7">MK40k – MK55k</div>
                             <p class="text-offwhite/80 text-sm mb-6">Multi-generational family portrait session in studio or outdoor Blantyre location, 10 fully edited high-res digital images.</p>
                         </div>
                         <a href="https://wa.me/265983172650?text=Hi%20MINDSET,%20I%20want%20to%20book%20a%20Family%20Mindset%20shoot" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 text-white font-semibold py-3 text-center uppercase tracking-wider text-xs hover:bg-emerald-500 transition-colors flex items-center justify-center space-x-2">
@@ -1005,50 +1006,49 @@
                     </div>
 
                     <!-- Tab 1: Upload Photos -->
-                     <!-- Inside <div id="uploadTab" class="tab-pane active"> -->
-<form id="uploadPhotoForm">
-    <div class="form-group">
-        <label>Select Image File from Device</label>
-        <input type="file" id="uploadFile" accept="image/*" required>
-    </div>
-    
-    <!-- ADD THIS PREVIEW CONTAINER -->
-    <div class="form-group" id="imagePreviewContainer" style="display:none; margin-bottom: 15px;">
-        <label>Preview:</label>
-        <img id="imagePreview" src="" alt="Preview" style="max-width: 200px; max-height: 200px; border: 1px solid var(--gold); display: block;" />
-    </div>
-
-    <div class="form-group">
-        <label>Destination</label>
-        <select id="uploadDestination">
-            <option value="Home Tab">Home Tab (Hero Slider)</option>
-            <option value="love">Portfolio - Love Mindset</option>
-            <option value="graduation">Portfolio - Graduation Mindset</option>
-            <option value="boss">Portfolio - Boss Mindset</option>
-            <option value="family">Portfolio - Family Mindset</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Caption</label>
-        <input type="text" id="uploadCaption" placeholder="Enter image caption...">
-    </div>
-    <div class="form-group">
-        <label>Location</label>
-        <input type="text" id="uploadLocation" placeholder="Blantyre, Malawi">
-    </div>
-    <div class="form-group">
-        <label>Show on Home Hero?</label>
-        <select id="showOnHome">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
-    </div>
-    <button type="submit" class="submit-btn">Publish Photo</button>
-</form>
-
-
-
                     <div id="admin-tab-photos" class="admin-section space-y-8">
+                        <div class="bg-cardGray border border-gold/20 p-8 shadow-xl">
+                            <h3 class="text-xl font-bold uppercase tracking-wider mb-6 text-gold">Upload Photos</h3>
+                            <form id="uploadPhotoForm">
+                                <div class="form-group">
+                                    <label>Select Image File from Device</label>
+                                    <input type="file" id="uploadFile" accept="image/*" required>
+                                </div>
+
+                                <div class="form-group" id="imagePreviewContainer" style="display:none; margin-bottom: 15px;">
+                                    <label>Preview:</label>
+                                    <img id="imagePreview" src="" alt="Preview" style="max-width: 200px; max-height: 200px; border: 1px solid var(--gold); display: block;" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Destination</label>
+                                    <select id="uploadDestination">
+                                        <option value="Home Tab">Home Tab (Hero Slider)</option>
+                                        <option value="love">Portfolio - Love Mindset</option>
+                                        <option value="graduation">Portfolio - Graduation Mindset</option>
+                                        <option value="boss">Portfolio - Boss Mindset</option>
+                                        <option value="family">Portfolio - Family Mindset</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Caption</label>
+                                    <input type="text" id="uploadCaption" placeholder="Enter image caption...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" id="uploadLocation" placeholder="Blantyre, Malawi">
+                                </div>
+                                <div class="form-group">
+                                    <label>Show on Home Hero?</label>
+                                    <select id="showOnHome">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="submit-btn">Publish Photo</button>
+                            </form>
+                            <div id="admin-photos-list" class="mt-8 space-y-3"></div>
+                        </div>
                     </div>
 
                     <!-- Tab 2: Manage Owners -->
@@ -1109,6 +1109,22 @@
                                 <div class="bg-black p-4 border border-gold/20">
                                     <label class="block text-xs uppercase text-gold font-semibold mb-2">Wedding Silver Pricing</label>
                                     <input type="text" value="MK250k" data-service-price-input="3" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Wedding Gold Pricing</label>
+                                    <input type="text" value="MK450k" data-service-price-input="4" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Wedding Platinum Pricing</label>
+                                    <input type="text" value="MK700k+" data-service-price-input="5" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Corporate Mindset Pricing</label>
+                                    <input type="text" value="MK80k – MK150k" data-service-price-input="6" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
+                                </div>
+                                <div class="bg-black p-4 border border-gold/20">
+                                    <label class="block text-xs uppercase text-gold font-semibold mb-2">Family Mindset Pricing</label>
+                                    <input type="text" value="MK40k – MK55k" data-service-price-input="7" class="w-full bg-cardGray border border-gold/30 px-3 py-2 text-offwhite text-sm" />
                                 </div>
                             </div>
 
@@ -1259,6 +1275,11 @@
             </form>
         </div>
     </div>
+
+    <!-- FIREBASE SDK (compat build) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
     <!-- JAVASCRIPT LOGIC -->
     <script src="script.js"></script>
